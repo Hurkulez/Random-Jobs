@@ -1,0 +1,48 @@
+// *************************************************************************
+// * Modding Unlimited Random Jobs module for phpVMS                       *
+// * Copyright (c) Hurkulez (moddingunlimited.net) All Rights Reserved     *
+// * Release Date: 05 April 2016                                           *
+// * Version 1.10                                                          *
+// * Email: hurkulez@gmail.com                                             *
+// * Website: http://www.moddingunlimited.net                              *
+// *************************************************************************
+// * This software is furnished under a license and may be used and copied *
+// * in  accordance  with  the  terms  of such  license and with the       *
+// * inclusion of the above copyright notice.                              *
+// *************************************************************************
+
+
+
+IMPORTANT!!: THIS ARE THE FILES FOR THE .PHP FILE EXTENSION VERSION OF PHPVMS.
+
+
+INSTALLATION:
+-------------
+
+-Simply upload the content of "admin" and "core" folders to your phpVMS installation.
+
+-Leave the structure intact as it comes in the zipped file.
+
+-Import the attached SQL file(s) via phpmyadmin.
+
+IMPORTANT!! The step below IS required for the module to work!
+Create a cron job that runs every 2 minutes using the wget command:
+wget --quiet -O /dev/null http://www.YOURSITEURL.com/action.php/randomjobs/generatejobs
+
+in the URL above you need to replace YOURSITEURL with your actual va url. You can change the 2 minutes
+ interval to a higher value...however the cron job interval must be at least the time in minutes you have
+set for minimum job creation interval in the modules settings.
+
+
+Create a link on your site to the module as follows:
+<a href="<?php echo url('/randomjobs') ?>">Jobs</a>
+
+Alternatively you can also embed the job list on any other page using 
+<?php MainController::Run('RandomJobs', 'index'); ?>
+
+and for the pilot job request form (for the widget to show up you need to have set that option in the module settings):
+<?php MainController::Run('RandomJobs', 'pilotwidget'); ?>
+
+Go to your Admin Center -> Addons -> Random Jobs -> Settings and set it up to your liking! Don't forget to set the airline 3 letter
+ code to your VA's code!
+
